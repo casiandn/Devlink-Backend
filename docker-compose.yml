@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15.6
+    container_name: devlink-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: devlink_user
+      POSTGRES_PASSWORD: devlink_pass
+      POSTGRES_DB: devlink
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
